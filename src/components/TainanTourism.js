@@ -1,15 +1,21 @@
-import { CssBaseline, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
-import React from 'react';
 import { theme } from '../style/createTheme';
 import MainPage from './MainPage';
+import { AppContext } from '../context/AppContext';
+import { TABS } from '../constants/general';
+import Header from './Header';
 
 const TainanToursim = () => {
+  const [currentTab, setCurrentTab] = useState(TABS.MAIN);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <MainPage />
-      <Typography variant="h1">中文</Typography>
+      <AppContext.Provider value={{ currentTab, setCurrentTab }}>
+        <Header />
+        <MainPage />
+      </AppContext.Provider>
     </ThemeProvider>
   );
 };
