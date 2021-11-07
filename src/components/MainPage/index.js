@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, CardMedia, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
-import mainPageBackground from '../../assets/mainPageBackground.png';
+import mainBackground from '../../assets/main_background.png';
 import Wave from '../../assets/wave.png';
-import NorthSalt from '../../assets/northSalt.png';
+import NorthSalt from '../../assets/north_salt.png';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      backgroundImage: `url(${mainPageBackground})`,
+      backgroundImage: `url(${mainBackground})`,
       backgroundSize: 'cover',
       height: 667,
       maxHeight: 667,
@@ -23,23 +23,20 @@ const useStyles = makeStyles((theme) =>
       },
     },
     content: { position: 'absolute', top: 48 },
-    text: {
-      marginLeft: 100,
-    },
     textCard: {
       margin: 'auto',
+      paddingLeft: 100,
     },
     title: {
-      color: theme.colors.white,
       fontSize: 42,
       fontWeight: 'bold',
     },
     subTitle: {
-      color: theme.colors.white,
       fontSize: 18,
     },
     card: {
       maxWidth: 678,
+      borderRadius: 31,
       margin: '100px auto',
     },
     imageCard: {
@@ -55,9 +52,17 @@ const MainPage = () => {
     <Grid className={classes.container}>
       <Grid container className={classes.content}>
         <Grid item xs={4} className={classes.textCard}>
-          <Grid className={classes.text}>
-            <Typography className={classes.title}>台 南 好 水</Typography>
-            <Typography className={classes.subTitle}>帶你探索台南海線沿岸風光</Typography>
+          <Grid item container direction="column" spacing={2}>
+            <Grid item>
+              <Typography color="textPrimary" className={classes.title}>
+                台 南 好 水
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography color="textPrimary" className={classes.subTitle}>
+                帶你探索台南海線沿岸風光
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
         <Grid item xs={8}>

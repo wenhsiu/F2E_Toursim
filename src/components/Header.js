@@ -4,12 +4,12 @@ import React, { useContext } from 'react';
 import { TABS } from '../constants/general';
 import { AppContext } from '../context/AppContext';
 import logo from '../assets/logo.png';
-import mainPageBackground from '../assets/mainPageBackground.png';
+import mainBackground from '../assets/main_background.png';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     menuBar: {
-      background: `url(${mainPageBackground})`,
+      background: `url(${mainBackground})`,
       backgroundSize: 'cover',
     },
     tabs: {

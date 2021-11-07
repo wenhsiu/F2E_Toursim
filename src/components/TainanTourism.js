@@ -6,6 +6,7 @@ import MainPage from './MainPage';
 import { AppContext } from '../context/AppContext';
 import { TABS } from '../constants/general';
 import Header from './Header';
+import AboutPage from './AboutPage.js';
 
 const TainanToursim = () => {
   const [currentTab, setCurrentTab] = useState(TABS.MAIN);
@@ -15,6 +16,7 @@ const TainanToursim = () => {
       <AppContext.Provider value={{ currentTab, setCurrentTab }}>
         <Header />
         <MainPage />
+        <AboutPage />
       </AppContext.Provider>
     </ThemeProvider>
   );

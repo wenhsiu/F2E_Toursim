@@ -30,6 +30,10 @@ export const theme = createTheme({
     secondary: {
       main: colors.deepGreen,
     },
+    text: {
+      primary: colors.white,
+      secondary: colors.darkNavy,
+    },
   },
   typography: {
     fontFamily: 'GenJyuuGothic',
