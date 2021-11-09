@@ -4,11 +4,12 @@ import { createStyles, makeStyles } from '@material-ui/styles';
 import Beach from '../../assets/beach.png';
 import Beach2 from '../../assets/beach_2.png';
 import Ocean from '../../assets/ocean.png';
+import AboutBackground from '../../assets/about_background.png';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      backgroundColor: theme.colors.deepGreen,
+      backgroundImage: `url(${AboutBackground})`,
       backgroundSize: 'cover',
       height: 667,
       maxHeight: 667,
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) =>
     },
     tabTitle: {
       fontSize: 24,
-      fontWeight: 500,
+      fontWeight: theme.typography.fontWeightMedium,
     },
     title: {
       fontSize: 32,

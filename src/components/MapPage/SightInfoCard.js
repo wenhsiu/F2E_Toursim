@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const SightCard = ({
+const SightInfoCard = ({
   image = Ocean,
   name = '北門瀉湖',
   detail = '北門區之生態環境屬於潟湖生態，蘊含著豐富之魚、蝦、貝類及紅樹林景觀，常見許多鷺鳥、水鳥，彈塗魚和各種螃蟹，具有潟湖觀光生態旅遊之魅力。最讓人注目的是每年10月到翌年4月到此作客的黑腹燕鷗，每到黃昏成群的黑腹燕鷗會在空中群聚飛舞，依照風向變換各種不同隊型，相當壯觀。海茄苳紅樹林曾經大量生長在北門蚵寮西邊的北門潟湖區沼澤地帶，後來開發為海埔新生地或闢為魚塭，經常可見許多蚵架插置潟湖中，形成另一特殊的海岸景觀。在台南政府全力復育紅樹林的政策下，潟湖南邊之頭港大排水，出海口長有面積約6公頃的海茄苳；在急水溪出海口淤沙較多的北門潟湖區海茄苳也再度繁殖，並引進種植水筆仔，在這兩個據點設置紅樹林保護區，以翠綠的生態景觀驚豔遊客。',
@@ -127,11 +127,11 @@ const SightCard = ({
   );
 };
 
-SightCard.propTypes = {
+SightInfoCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string.isRequired,
   detail: PropTypes.string,
   info: PropTypes.object,
 };
 
-export default SightCard;
+export default SightInfoCard;
