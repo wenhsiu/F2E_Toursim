@@ -8,6 +8,7 @@ import { TABS } from '../constants/general';
 import Header from './Header';
 import AboutPage from './AboutPage.js';
 import MapPage from './MapPage';
+import SightPage from './SightPage';
 
 const TainanToursim = () => {
   const [currentTab, setCurrentTab] = useState(TABS.MAIN);
@@ -15,12 +16,13 @@ const TainanToursim = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContext.Provider value={{ currentTab, setCurrentTab }}>
-        {/* <Container maxWidth="xl"> */}
-        <Header />
-        <MainPage />
-        <AboutPage />
-        <MapPage />
-        {/* </Container> */}
+        <Container fixed disableGutters>
+          <Header />
+          <MainPage />
+          <AboutPage />
+          <MapPage />
+          <SightPage />
+        </Container>
       </AppContext.Provider>
     </ThemeProvider>
   );

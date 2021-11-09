@@ -20,15 +20,14 @@ const useStyles = makeStyles((theme) =>
     },
     sightInfoCard: {
       margin: '16px 0',
-      position: 'absolute',
+      position: 'relative',
       right: 30,
     },
     tabTitle: {
       fontSize: 24,
       fontWeight: theme.typography.fontWeightMedium,
-      margin: '60px 0',
+      margin: 72,
       position: 'absolute',
-      left: 72,
     },
     title: {
       fontSize: 32,
@@ -57,28 +56,28 @@ const useStyles = makeStyles((theme) =>
       left: 236,
     },
     saltFields: {
-      right: 490,
-      top: 290,
+      right: 72,
+      top: 56,
     },
     saltFieldsIcon: {
-      right: 175,
-      top: 150,
+      bottom: 80,
+      left: 240,
     },
     luermenTempleIcon: {
-      right: 400,
-      top: 230,
+      // right: 400,
+      // top: 230,
     },
     luermenTemple: {
-      right: 400,
-      top: 220,
+      // right: 400,
+      // top: 220,
     },
     sicaoRefuge: {
       left: 100,
-      top: 80,
+      bottom: 80,
     },
     sicaoRefugeIcon: {
       left: 484,
-      top: 60,
+      bottom: 100,
     },
   })
 );
@@ -97,79 +96,81 @@ const MapPage = () => {
 
   return (
     <Grid container className={classes.container}>
-      <Grid item>
-        <Typography className={classes.tabTitle}>水的地圖</Typography>
-      </Grid>
-      <Grid item className={classes.sight} onClick={() => setSelected(SPOT.LAGOON)}>
-        <SpotIcon
-          className={clsx(
-            classes.icon,
-            classes.beimenLagoonIcon,
-            selected === SPOT.LAGOON ? classes.selected : classes.unselected
-          )}
-        />
-        <img
-          src={LagoonPic}
-          className={clsx(
-            classes.icon,
-            classes.beimenLagoon,
-            selected === SPOT.LAGOON ? classes.selected : classes.unselected
-          )}
-        />
-        <Typography color="textPrimary" variant="h5">
-          北門潟湖
-        </Typography>
-      </Grid>
-      <Grid item className={classes.sight} onClick={() => setSelected(SPOT.SALT_FIELDS)}>
-        <SpotIcon
-          className={clsx(
-            classes.icon,
-            classes.saltFieldsIcon,
-            selected === SPOT.SALT_FIELDS ? classes.selected : classes.unselected
-          )}
-        />
-        <img
-          src={SaltFieldsPic}
-          className={clsx(
-            classes.icon,
-            classes.saltFields,
-            selected === SPOT.SALT_FIELDS ? classes.selected : classes.unselected
-          )}
-        />
-      </Grid>
-      <Grid item className={classes.sight} onClick={() => setSelected(SPOT.TEMPLE)}>
-        <SpotIcon
-          className={clsx(
-            classes.icon,
-            classes.luermenTempleIcon,
-            selected === SPOT.TEMPLE ? classes.selected : classes.unselected
-          )}
-        />
-        <img
-          src={LuermenTemplePic}
-          className={clsx(
-            classes.icon,
-            classes.luermenTemple,
-            selected === SPOT.TEMPLE ? classes.selected : classes.unselected
-          )}
-        />
-      </Grid>
-      <Grid item className={classes.sight} onClick={() => setSelected(SPOT.REFUGE)}>
-        <SpotIcon
-          className={clsx(
-            classes.icon,
-            classes.sicaoRefugeIcon,
-            selected === SPOT.REFUGE ? classes.selected : classes.unselected
-          )}
-        />
-        <img
-          src={SicaoRefugePic}
-          className={clsx(
-            classes.icon,
-            classes.sicaoRefuge,
-            selected === SPOT.REFUGE ? classes.selected : classes.unselected
-          )}
-        />
+      <Grid item container xs>
+        <Grid item>
+          <Typography className={classes.tabTitle}>水的地圖</Typography>
+        </Grid>
+        <Grid item className={classes.sight} onClick={() => setSelected(SPOT.LAGOON)}>
+          <SpotIcon
+            className={clsx(
+              classes.icon,
+              classes.beimenLagoonIcon,
+              selected === SPOT.LAGOON ? classes.selected : classes.unselected
+            )}
+          />
+          <img
+            src={LagoonPic}
+            className={clsx(
+              classes.icon,
+              classes.beimenLagoon,
+              selected === SPOT.LAGOON ? classes.selected : classes.unselected
+            )}
+          />
+          <Typography color="textPrimary" variant="h5">
+            北門潟湖
+          </Typography>
+        </Grid>
+        <Grid item className={classes.sight} onClick={() => setSelected(SPOT.SALT_FIELDS)}>
+          <SpotIcon
+            className={clsx(
+              classes.icon,
+              classes.saltFieldsIcon,
+              selected === SPOT.SALT_FIELDS ? classes.selected : classes.unselected
+            )}
+          />
+          <img
+            src={SaltFieldsPic}
+            className={clsx(
+              classes.icon,
+              classes.saltFields,
+              selected === SPOT.SALT_FIELDS ? classes.selected : classes.unselected
+            )}
+          />
+        </Grid>
+        <Grid item className={classes.sight} onClick={() => setSelected(SPOT.TEMPLE)}>
+          <SpotIcon
+            className={clsx(
+              classes.icon,
+              classes.luermenTempleIcon,
+              selected === SPOT.TEMPLE ? classes.selected : classes.unselected
+            )}
+          />
+          <img
+            src={LuermenTemplePic}
+            className={clsx(
+              classes.icon,
+              classes.luermenTemple,
+              selected === SPOT.TEMPLE ? classes.selected : classes.unselected
+            )}
+          />
+        </Grid>
+        <Grid item className={classes.sight} onClick={() => setSelected(SPOT.REFUGE)}>
+          <SpotIcon
+            className={clsx(
+              classes.icon,
+              classes.sicaoRefugeIcon,
+              selected === SPOT.REFUGE ? classes.selected : classes.unselected
+            )}
+          />
+          <img
+            src={SicaoRefugePic}
+            className={clsx(
+              classes.icon,
+              classes.sicaoRefuge,
+              selected === SPOT.REFUGE ? classes.selected : classes.unselected
+            )}
+          />
+        </Grid>
       </Grid>
       <Grid item className={classes.sightInfoCard}>
         <SightInfoCard />
