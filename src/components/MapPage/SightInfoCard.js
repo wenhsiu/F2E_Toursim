@@ -4,7 +4,6 @@ import { createStyles, makeStyles } from '@material-ui/styles';
 import { ReactComponent as ClockIcon } from '../../assets/clock_icon.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/phone_icon.svg';
 import { ReactComponent as SpotIcon } from '../../assets/spot_icon.svg';
-import Ocean from '../../assets/ocean.png';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) =>
@@ -46,33 +45,24 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const SightInfoCard = ({
-  image = Ocean,
-  name = '北門瀉湖',
-  detail = '北門區之生態環境屬於潟湖生態，蘊含著豐富之魚、蝦、貝類及紅樹林景觀，常見許多鷺鳥、水鳥，彈塗魚和各種螃蟹，具有潟湖觀光生態旅遊之魅力。最讓人注目的是每年10月到翌年4月到此作客的黑腹燕鷗，每到黃昏成群的黑腹燕鷗會在空中群聚飛舞，依照風向變換各種不同隊型，相當壯觀。海茄苳紅樹林曾經大量生長在北門蚵寮西邊的北門潟湖區沼澤地帶，後來開發為海埔新生地或闢為魚塭，經常可見許多蚵架插置潟湖中，形成另一特殊的海岸景觀。在台南政府全力復育紅樹林的政策下，潟湖南邊之頭港大排水，出海口長有面積約6公頃的海茄苳；在急水溪出海口淤沙較多的北門潟湖區海茄苳也再度繁殖，並引進種植水筆仔，在這兩個據點設置紅樹林保護區，以翠綠的生態景觀驚豔遊客。',
-  info = {
-    address: '臺南市709安南區城安路160號',
-    phone: '886-6-7861000',
-    openTime: '全年皆可，無時間限制(00:00~24:00)',
-  },
-}) => {
+const SightInfoCard = ({ Picture, Name, Description, Address, Phone, OpenTime }) => {
   const classes = useStyles();
 
-  const phonCall = useMemo(() => `tel:${info.phone}`);
+  const phonCall = useMemo(() => `tel:${Phone}`);
 
   return (
     <Card className={classes.container}>
-      <CardMedia className={classes.image} image={image} title="" />
+      <CardMedia className={classes.image} image={Picture?.PictureUrl1} />
       <CardContent>
         <Grid container direction="column">
           <Grid item className={classes.name}>
             <Typography align="center" className={classes.text}>
-              {name}
+              {Name}
             </Typography>
           </Grid>
           <Grid item className={classes.detail}>
             <Typography align="justify" className={classes.text}>
-              {detail}
+              {Description}
             </Typography>
           </Grid>
         </Grid>
@@ -88,8 +78,13 @@ const SightInfoCard = ({
               </Grid>
               <Grid item>
                 <Typography color="textPrimary" className={classes.infoText}>
-                  {/* TODO: add google map link */}
-                  {info.address}
+                  <Link
+                    href={`https://www.google.com/maps/search/?api=1&query=${Name}`}
+                    target="_blank"
+                    color="inherit"
+                  >
+                    {Address}
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -102,7 +97,7 @@ const SightInfoCard = ({
               <Grid item>
                 <Typography color="textPrimary" className={classes.infoText}>
                   <Link href={phonCall} color="inherit">
-                    {info.phone}
+                    {Phone}
                   </Link>
                 </Typography>
               </Grid>
@@ -117,7 +112,7 @@ const SightInfoCard = ({
             </Grid>
             <Grid item>
               <Typography color="textPrimary" className={classes.infoText}>
-                {info.openTime}
+                {OpenTime}
               </Typography>
             </Grid>
           </Grid>
@@ -128,10 +123,13 @@ const SightInfoCard = ({
 };
 
 SightInfoCard.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  detail: PropTypes.string,
-  info: PropTypes.object,
+  Picture: PropTypes.object,
+  Name: PropTypes.string,
+  Description: PropTypes.string,
+  Address: PropTypes.string,
+  Phone: PropTypes.string,
+  OpenTime: PropTypes.string,
+  Position: PropTypes.object,
 };
 
 export default SightInfoCard;

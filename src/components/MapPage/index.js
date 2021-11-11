@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import MapBackground from '../../assets/map_background.png';
@@ -10,6 +10,7 @@ import LuermenTemplePic from '../../assets/temple.png';
 import SicaoRefugePic from '../../assets/refuge.png';
 import SightInfoCard from './SightInfoCard';
 import clsx from 'clsx';
+import { getSightInfo } from '../../service/toursium';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -108,10 +109,38 @@ const SPOT = {
   REFUGE: 'sicaoRefuge',
 };
 
+const location = {
+  [SPOT.LAGOON]: { longitude: 120.10552978515625, latitude: 23.259729385375977 },
+  [SPOT.SALT_FIELDS]: { longitude: 120.09017181396484, latitude: 23.193080902099617 },
+  [SPOT.TEMPLE]: { longitude: 120.12751007080078, latitude: 23.06797981262207 },
+  [SPOT.REFUGE]: { longitude: 120.137687683105475, latitude: 23.029539108276367 },
+};
+
 const MapPage = () => {
   const classes = useStyles();
-
   const [selected, setSelected] = useState(SPOT.LAGOON);
+  const [sightsData, setSightsData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const lagoon = await getSightInfo(location[SPOT.LAGOON]);
+        const saltFields = await getSightInfo(location[SPOT.SALT_FIELDS]);
+        const temple = await getSightInfo(location[SPOT.TEMPLE]);
+        const refuge = await getSightInfo(location[SPOT.REFUGE]);
+
+        setSightsData({
+          [SPOT.LAGOON]: lagoon,
+          [SPOT.SALT_FIELDS]: saltFields,
+          [SPOT.TEMPLE]: temple,
+          [SPOT.REFUGE]: refuge,
+        });
+      } catch (err) {
+        console.log('err', err);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={classes.outside}>
@@ -171,7 +200,7 @@ const MapPage = () => {
             </Grid>
           </Grid>
           <Grid item className={classes.sightInfoCard}>
-            <SightInfoCard />
+            {sightsData && <SightInfoCard {...sightsData[selected]} />}
           </Grid>
         </Grid>
       </Container>

@@ -79,7 +79,7 @@ const AboutPage = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item contianer xs={7} className={classes.imageContainer}>
+          <Grid item container xs={7} className={classes.imageContainer}>
             <Grid item container>
               <Grid item xs className={classes.imageLeft}>
                 <Card className={classes.card}>
