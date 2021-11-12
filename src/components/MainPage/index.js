@@ -5,7 +5,7 @@ import mainBackground from '../../assets/main_background.png';
 import Wave from '../../assets/wave.png';
 import NorthSalt from '../../assets/north_salt.png';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     container: {
       backgroundImage: `url(${mainBackground})`,

@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) =>
       '& .MuiTabs-indicator': {
         display: 'none',
       },
+      '& .Mui-selected': {
+        color: theme.colors.darkNavy,
+      },
     },
   })
 );
@@ -37,31 +40,10 @@ const Header = () => {
           <img src={logo} alt="台南，好水" />
         </Grid>
         <Grid item>
-          <Tabs className={classes.tabs} value={currentTab} onChange={handleTabChange} aria-label="nav tabs example">
-            <Tab
-              value={TABS.ABOUT}
-              onClick={(event) => {
-                event.preventDefault();
-                console.log('關於');
-              }}
-              label="關於"
-            />
-            <Tab
-              value={TABS.MAP}
-              onClick={(event) => {
-                event.preventDefault();
-                console.log('水的地圖');
-              }}
-              label="水的地圖"
-            />
-            <Tab
-              value={TABS.PLACE}
-              onClick={(event) => {
-                event.preventDefault();
-                console.log('水的景點');
-              }}
-              label="水的景點"
-            />
+          <Tabs className={classes.tabs} value={currentTab} onChange={handleTabChange} aria-label="nav tabs">
+            <Tab component="a" href={`#${TABS.ABOUT}`} value={TABS.ABOUT} label="關於" />
+            <Tab component="a" href={`#${TABS.MAP}`} value={TABS.MAP} label="水的地圖" />
+            <Tab component="a" href={`#${TABS.PLACE}`} value={TABS.PLACE} label="水的景點" />
           </Tabs>
         </Grid>
       </Grid>

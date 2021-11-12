@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import { theme } from '../style/createTheme';
@@ -12,6 +12,11 @@ import SightPage from './SightPage';
 
 const TainanToursim = () => {
   const [currentTab, setCurrentTab] = useState(TABS.MAIN);
+
+  useEffect(() => {
+    if (window.location.hash) setCurrentTab(window.location.hash.replace('#', ''));
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

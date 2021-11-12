@@ -5,6 +5,7 @@ import SightBackground from '../../assets/sight_background.png';
 import sunsetBackground from '../../assets/sunset_background.png';
 import SmallCard from './SmallCard';
 import Carousel from 'react-material-ui-carousel';
+import { TABS } from '../../constants/general';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -45,7 +46,7 @@ const SightPage = () => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.container}>
+    <Grid className={classes.container} id={TABS.PLACE}>
       <Container fixed disableGutters>
         <Grid item>
           <Typography className={classes.tabTitle}>水的景點</Typography>

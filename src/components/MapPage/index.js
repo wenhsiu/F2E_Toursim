@@ -11,6 +11,7 @@ import SicaoRefugePic from '../../assets/refuge.png';
 import SightInfoCard from './SightInfoCard';
 import clsx from 'clsx';
 import { getSightInfo } from '../../service/toursium';
+import { TABS } from '../../constants/general';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -143,7 +144,7 @@ const MapPage = () => {
   }, []);
 
   return (
-    <div className={classes.outside}>
+    <div className={classes.outside} id={TABS.MAP}>
       <Container fixed disableGutters>
         <Grid container className={classes.container}>
           <Grid item container xs>

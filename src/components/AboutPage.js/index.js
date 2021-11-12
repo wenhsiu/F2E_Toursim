@@ -5,6 +5,7 @@ import Beach from '../../assets/beach.png';
 import Beach2 from '../../assets/beach_2.png';
 import Ocean from '../../assets/ocean.png';
 import AboutBackground from '../../assets/about_background.png';
+import { TABS } from '../../constants/general';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) =>
 const AboutPage = () => {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes.container} id={TABS.ABOUT}>
       <Container fixed disableGutters>
         <Grid container>
           <Grid item xs={5} className={classes.textCard}>
