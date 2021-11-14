@@ -20,6 +20,6 @@ export const getSightInfo = ({ latitude, longitude }) =>
   axios({
     method: 'get',
     url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/Tainan?$top=1&$spatialFilter=nearby(${latitude},${longitude},100)&$format=JSON`,
-    header: GetAuthorizationHeader(),
+    headers: GetAuthorizationHeader(),
     dataType: 'json',
   }).then((resp) => resp.data?.[0] || []);
