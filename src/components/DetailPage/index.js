@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@material-ui/styles';
 import SightBackground from '../../assets/sight_background.png';
 import sunsetBackground from '../../assets/sunset_background.png';
 import Carousel from 'react-material-ui-carousel';
-import { TABS, PATH } from '../../constants/general';
+import { TABS } from '../../constants/general';
 import { AppContext } from '../../context/AppContext';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import { useParams } from 'react-router-dom';
@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) =>
       backgroundSize: '100% 100%',
       height: 1020,
       maxHeight: 1020,
+    },
+    content: {
+      paddingTop: 72,
     },
     title: {
       fontWeight: theme.typography.fontWeightBold,
@@ -88,16 +91,16 @@ const DetailPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleBack = async () => {
+    await navigate(`/`);
+    setCurrentTab(TABS.PLACE);
+  };
+
   return (
     <Grid className={classes.container} id={TABS.PLACE}>
-      <Container fixed disableGutters>
+      <Container fixed disableGutters className={classes.content}>
         <Grid item>
-          <Button
-            onClick={() => {
-              navigate(PATH.PLACE);
-              setCurrentTab(TABS.MAIN);
-            }}
-          >
+          <Button onClick={handleBack}>
             <ArrowBackRoundedIcon />
             水的景點
           </Button>
