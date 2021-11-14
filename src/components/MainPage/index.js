@@ -49,6 +49,7 @@ const useStyles = makeStyles(() =>
 
 const MainPage = () => {
   const classes = useStyles();
+
   return (
     <Grid className={classes.container}>
       <Container fixed disableGutters>

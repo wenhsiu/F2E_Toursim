@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo, useContext, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import SightBackground from '../../assets/sight_background.png';
@@ -7,6 +7,7 @@ import SmallCard from './SmallCard';
 import Carousel from 'react-material-ui-carousel';
 import { TABS } from '../../constants/general';
 import { AppContext } from '../../context/AppContext';
+import { useLocation } from 'react-router';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -45,7 +46,13 @@ const useStyles = makeStyles((theme) =>
 
 const SightPage = () => {
   const classes = useStyles();
-  const { places } = useContext(AppContext);
+  const { places, currentTab, setCurrentTab } = useContext(AppContext);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const path = pathname.split('/').pop();
+    if (currentTab != path) setCurrentTab(path);
+  }, []);
 
   const formateCarouselItem = useMemo(() => {
     if (!places) return [];
