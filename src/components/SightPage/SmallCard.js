@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Grid, Link, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -24,23 +25,6 @@ const useStyles = makeStyles((theme) =>
     },
     detailText: {
       fontSize: 14,
-      // '&:before': {
-      //   content: '"..."',
-      //   position: 'absolute',
-      //   right: 0,
-      //   bottom: 4,
-      //   backgroundColor: theme.colors.white,
-      //   width: 124,
-      // },
-      // '&:after': {
-      //   content: '""',
-      //   position: 'absolute',
-      //   right: 0,
-      //   width: '1em',
-      //   height: '1em',
-      //   marginTop: '0.2em',
-      //   background: 'white',
-      // },
     },
     detail: {
       padding: '0 10px',
@@ -60,32 +44,36 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const SmallCard = ({ Picture, Name, Description }) => {
+const SmallCard = (props) => {
+  const { Picture, Name, Description, ID } = props;
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
-    <Card className={classes.container}>
-      <CardMedia className={classes.image} image={Picture?.PictureUrl1} title="" />
-      <CardContent>
-        <Grid container direction="column">
-          <Grid item className={classes.name}>
-            <Typography align="center" className={classes.nameText}>
-              {Name}
-            </Typography>
+    <>
+      <Card className={classes.container}>
+        <CardMedia className={classes.image} image={Picture?.PictureUrl1} title="" />
+        <CardContent>
+          <Grid container direction="column">
+            <Grid item className={classes.name}>
+              <Typography align="center" className={classes.nameText}>
+                {Name}
+              </Typography>
+            </Grid>
+            <Grid item className={classes.detail}>
+              <Typography align="justify" className={classes.detailText}>
+                {Description}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography align="right" className={classes.more}>
+                <Link onClick={() => navigate(`/place/${ID}`, { ...props })}>看更多</Link>
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item className={classes.detail}>
-            <Typography align="justify" className={classes.detailText}>
-              {Description}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography align="right" className={classes.more}>
-              <Link href="">看更多</Link>
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </>
   );
 };
 
@@ -93,6 +81,7 @@ SmallCard.propTypes = {
   Picture: PropTypes.object,
   Name: PropTypes.string,
   Description: PropTypes.string,
+  ID: PropTypes.string,
 };
 
 export default SmallCard;
