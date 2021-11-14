@@ -74,7 +74,7 @@ const DetailPage = () => {
   const classes = useStyles();
   const { id } = useParams();
   const navigate = useNavigate();
-  const { places } = useContext(AppContext);
+  const { places, setCurrentTab } = useContext(AppContext);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -84,11 +84,20 @@ const DetailPage = () => {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Grid className={classes.container} id={TABS.PLACE}>
       <Container fixed disableGutters>
         <Grid item>
-          <Button onClick={() => navigate(PATH.PLACE)}>
+          <Button
+            onClick={() => {
+              navigate(PATH.PLACE);
+              setCurrentTab(TABS.MAIN);
+            }}
+          >
             <ArrowBackRoundedIcon />
             水的景點
           </Button>
@@ -176,18 +185,20 @@ const DetailPage = () => {
                                 </Grid>
                               )}
 
-                              <Grid item container spacing={1} alignItems="center">
-                                <Grid item xs={1}>
-                                  <Avatar className={classes.avatar}>
-                                    <ClockIcon />
-                                  </Avatar>
+                              {place.OpenTime && (
+                                <Grid item container spacing={1} alignItems="center">
+                                  <Grid item xs={1}>
+                                    <Avatar className={classes.avatar}>
+                                      <ClockIcon />
+                                    </Avatar>
+                                  </Grid>
+                                  <Grid item xs={11}>
+                                    <Typography color="textPrimary" className={classes.infoText}>
+                                      {place.OpenTime}
+                                    </Typography>
+                                  </Grid>
                                 </Grid>
-                                <Grid item xs={11}>
-                                  <Typography color="textPrimary" className={classes.infoText}>
-                                    {place.OpenTime}
-                                  </Typography>
-                                </Grid>
-                              </Grid>
+                              )}
                             </Grid>
                           </CardActions>
                         </Card>
