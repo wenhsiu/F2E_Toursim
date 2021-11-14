@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import SightBackground from '../../assets/sight_background.png';
@@ -6,8 +6,7 @@ import sunsetBackground from '../../assets/sunset_background.png';
 import SmallCard from './SmallCard';
 import Carousel from 'react-material-ui-carousel';
 import { TABS } from '../../constants/general';
-import { getSightInfo } from '../../service/toursium';
-import { placeListLocation } from '../../data/sightsLocation';
+import { AppContext } from '../../context/AppContext';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -46,19 +45,7 @@ const useStyles = makeStyles((theme) =>
 
 const SightPage = () => {
   const classes = useStyles();
-  const [places, setPlaces] = useState();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const list = await Promise.all(placeListLocation.map((location) => getSightInfo(location)));
-        setPlaces(list);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    fetchData();
-  }, []);
+  const { places } = useContext(AppContext);
 
   const formateCarouselItem = useMemo(() => {
     if (!places) return [];
