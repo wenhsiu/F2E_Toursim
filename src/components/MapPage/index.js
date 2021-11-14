@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) =>
       backgroundSize: '100% 100%',
     },
     container: {
+      overflow: 'hidden',
       backgroundImage: `url(${MapBackground})`,
       backgroundSize: '100% 100%',
       height: 667,
