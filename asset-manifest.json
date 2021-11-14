@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/F2E_Toursim/static/js/main.2e872fe1.chunk.js",
-    "main.js.map": "/F2E_Toursim/static/js/main.2e872fe1.chunk.js.map",
-    "runtime-main.js": "/F2E_Toursim/static/js/runtime-main.685d106d.js",
-    "runtime-main.js.map": "/F2E_Toursim/static/js/runtime-main.685d106d.js.map",
-    "static/js/2.1d600ff4.chunk.js": "/F2E_Toursim/static/js/2.1d600ff4.chunk.js",
-    "static/js/2.1d600ff4.chunk.js.map": "/F2E_Toursim/static/js/2.1d600ff4.chunk.js.map",
-    "static/js/3.45232949.chunk.js": "/F2E_Toursim/static/js/3.45232949.chunk.js",
-    "static/js/3.45232949.chunk.js.map": "/F2E_Toursim/static/js/3.45232949.chunk.js.map",
+    "main.js": "/F2E_Toursim/static/js/main.2ca8f892.chunk.js",
+    "main.js.map": "/F2E_Toursim/static/js/main.2ca8f892.chunk.js.map",
+    "runtime-main.js": "/F2E_Toursim/static/js/runtime-main.36ff5dbd.js",
+    "runtime-main.js.map": "/F2E_Toursim/static/js/runtime-main.36ff5dbd.js.map",
+    "static/js/2.e0b809e1.chunk.js": "/F2E_Toursim/static/js/2.e0b809e1.chunk.js",
+    "static/js/2.e0b809e1.chunk.js.map": "/F2E_Toursim/static/js/2.e0b809e1.chunk.js.map",
+    "static/js/3.cce09be1.chunk.js": "/F2E_Toursim/static/js/3.cce09be1.chunk.js",
+    "static/js/3.cce09be1.chunk.js.map": "/F2E_Toursim/static/js/3.cce09be1.chunk.js.map",
     "index.html": "/F2E_Toursim/index.html",
-    "static/js/2.1d600ff4.chunk.js.LICENSE.txt": "/F2E_Toursim/static/js/2.1d600ff4.chunk.js.LICENSE.txt",
+    "static/js/2.e0b809e1.chunk.js.LICENSE.txt": "/F2E_Toursim/static/js/2.e0b809e1.chunk.js.LICENSE.txt",
     "static/media/1440_background.377c42dd.png": "/F2E_Toursim/static/media/1440_background.377c42dd.png",
     "static/media/GenJyuuGothic-Normal.f9efdb14.ttf": "/F2E_Toursim/static/media/GenJyuuGothic-Normal.f9efdb14.ttf",
     "static/media/about_background.c0797d93.png": "/F2E_Toursim/static/media/about_background.c0797d93.png",
@@ -29,11 +29,12 @@
     "static/media/spot_icon.7c523900.svg": "/F2E_Toursim/static/media/spot_icon.7c523900.svg",
     "static/media/sunset_background.bb47f930.png": "/F2E_Toursim/static/media/sunset_background.bb47f930.png",
     "static/media/temple.9a209278.png": "/F2E_Toursim/static/media/temple.9a209278.png",
+    "static/media/ticket_icon.6ddc2d75.svg": "/F2E_Toursim/static/media/ticket_icon.6ddc2d75.svg",
     "static/media/wave.30340a92.png": "/F2E_Toursim/static/media/wave.30340a92.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.685d106d.js",
-    "static/js/2.1d600ff4.chunk.js",
-    "static/js/main.2e872fe1.chunk.js"
+    "static/js/runtime-main.36ff5dbd.js",
+    "static/js/2.e0b809e1.chunk.js",
+    "static/js/main.2ca8f892.chunk.js"
   ]
 }
