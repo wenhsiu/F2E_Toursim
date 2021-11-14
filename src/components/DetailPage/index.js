@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@material-ui/styles';
 import SightBackground from '../../assets/sight_background.png';
 import sunsetBackground from '../../assets/sunset_background.png';
 import Carousel from 'react-material-ui-carousel';
-import { TABS } from '../../constants/general';
+import { TABS, PATH } from '../../constants/general';
 import { AppContext } from '../../context/AppContext';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import { useParams } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { ReactComponent as ClockIcon } from '../../assets/clock_icon.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/phone_icon.svg';
 import { ReactComponent as SpotIcon } from '../../assets/spot_icon.svg';
 import { ReactComponent as TicketIcon } from '../../assets/ticket_icon.svg';
+import { useNavigate } from 'react-router';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -63,16 +64,21 @@ const useStyles = makeStyles((theme) =>
     infoText: {
       fontSize: 14,
     },
+    text: {
+      maxWidth: 400,
+    },
   })
 );
 
 const DetailPage = () => {
   const classes = useStyles();
   const { id } = useParams();
+  const navigate = useNavigate();
   const { places } = useContext(AppContext);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (!places) return [];
     places.forEach((place, i) => {
       if (place.ID === id) setCurrentIndex(i);
     });
@@ -82,7 +88,7 @@ const DetailPage = () => {
     <Grid className={classes.container} id={TABS.PLACE}>
       <Container fixed disableGutters>
         <Grid item>
-          <Button>
+          <Button onClick={() => navigate(PATH.PLACE)}>
             <ArrowBackRoundedIcon />
             水的景點
           </Button>
@@ -102,7 +108,7 @@ const DetailPage = () => {
                 return (
                   <Grid key={i} container className={classes.carouselItemGroup}>
                     <Grid item container xs={5} spacing={4} className={classes.leftGrid}>
-                      <Grid item>
+                      <Grid item className={classes.text}>
                         <Typography variant="h4" color="textPrimary" className={classes.title}>
                           {place.Name}
                         </Typography>

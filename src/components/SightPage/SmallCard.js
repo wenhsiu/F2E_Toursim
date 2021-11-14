@@ -3,6 +3,7 @@ import { Card, CardContent, CardMedia, Grid, Link, Typography } from '@material-
 import { createStyles, makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
+import { PATH } from '../../constants/general';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -67,7 +68,7 @@ const SmallCard = (props) => {
             </Grid>
             <Grid item>
               <Typography align="right" className={classes.more}>
-                <Link onClick={() => navigate(`/place/${ID}`, { ...props })}>看更多</Link>
+                <Link onClick={() => navigate(`${PATH.PLACE}/${ID}`, { ...props })}>看更多</Link>
               </Typography>
             </Grid>
           </Grid>
