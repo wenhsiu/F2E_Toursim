@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { theme } from '../style/createTheme';
 import MainPage from './MainPage';
 import { AppContext } from '../context/AppContext';
-import { TABS } from '../constants/general';
+import { TABS, PATH } from '../constants/general';
 import Header from './Header';
 import AboutPage from './AboutPage.js';
 import MapPage from './MapPage';
@@ -37,11 +37,11 @@ const TainanToursim = () => {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/map" element={<MapPage />} />
-            <Route path="/place" element={<SightPage />} />
-            <Route path="/place/:id" element={<DetailPage />} />
+            <Route path={PATH.MAIN} element={<MainPage />} />
+            <Route path={PATH.ABOUT} element={<AboutPage />} />
+            <Route path={PATH.MAP} element={<MapPage />} />
+            <Route path={PATH.PLACE} element={<SightPage />} />
+            <Route path={`${PATH.PLACE}/:id`} element={<DetailPage />} />
           </Routes>
           {/* <MainPage />
           <AboutPage />
