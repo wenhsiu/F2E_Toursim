@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
       width: 470,
+      [theme.breakpoints.down('lg')]: {
+        width: 'inherit',
+      },
     },
     image: {
       width: 446,
@@ -18,9 +21,24 @@ const useStyles = makeStyles((theme) =>
       margin: 12,
       marginBottom: 0,
       borderRadius: '40px 40px 31px 31px',
+      [theme.breakpoints.down('lg')]: {
+        width: 305,
+        height: 197,
+        margin: '24px auto 0 auto',
+        maxWidth: 'inherit',
+      },
+    },
+    title: {
+      fontWeight: theme.typography.fontWeightMedium,
+      [theme.breakpoints.down('lg')]: {
+        fontSize: 20,
+      },
     },
     text: {
       fontWeight: theme.typography.fontWeightMedium,
+      [theme.breakpoints.down('lg')]: {
+        fontSize: 16,
+      },
     },
     name: {
       paddingBottom: 12,
@@ -29,18 +47,31 @@ const useStyles = makeStyles((theme) =>
       padding: '0 40px',
       height: 200,
       overflowY: 'scroll',
+      [theme.breakpoints.down('lg')]: {
+        padding: '0 16px',
+      },
     },
     actionArea: {
       backgroundColor: theme.colors.softBlue,
       height: 94,
       padding: '8px 32px',
+      [theme.breakpoints.down('lg')]: {
+        padding: '8px 16px',
+      },
     },
     avatar: {
       width: 30,
       height: 30,
+      [theme.breakpoints.down('lg')]: {
+        width: 22,
+        height: 22,
+      },
     },
     infoText: {
       fontSize: 14,
+      [theme.breakpoints.down('lg')]: {
+        fontSize: 12,
+      },
     },
   })
 );
@@ -56,7 +87,7 @@ const SightInfoCard = ({ Picture, Name, Description, Address, Phone, OpenTime })
       <CardContent>
         <Grid container direction="column">
           <Grid item className={classes.name}>
-            <Typography align="center" className={classes.text}>
+            <Typography align="center" className={classes.title}>
               {Name}
             </Typography>
           </Grid>

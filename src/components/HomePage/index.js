@@ -95,7 +95,7 @@ const HomePage = () => {
     <Grid className={classes.container} id={TABS.MAIN}>
       <Container fixed disableGutters>
         <Grid container className={classes.content}>
-          <Grid item xs={12} sm={4} className={classes.textCard} direction={isMobileDevice ? 'column' : 'row'}>
+          <Grid item xs={12} sm={4} className={classes.textCard}>
             <Grid item container direction="column" spacing={2}>
               <Grid item>
                 <Typography color="textPrimary" className={classes.title}>
