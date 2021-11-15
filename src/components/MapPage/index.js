@@ -146,8 +146,9 @@ const useStyles = makeStyles((theme) =>
     luermenTempleText: {
       left: 50,
       [theme.breakpoints.down('sm')]: {
-        left: 230,
+        left: 246,
         bottom: 30,
+        width: 80,
       },
     },
     sicaoRefuge: {
@@ -157,7 +158,7 @@ const useStyles = makeStyles((theme) =>
         width: 266,
         height: 155,
         left: -56,
-        top: 20,
+        bottom: 0,
       },
     },
     sicaoRefugeIcon: {
@@ -167,7 +168,7 @@ const useStyles = makeStyles((theme) =>
         width: 35,
         height: 45,
         left: 265,
-        bottom: 0,
+        bottom: 10,
       },
     },
     sicaoRefugeText: {
@@ -175,7 +176,8 @@ const useStyles = makeStyles((theme) =>
       left: 556,
       [theme.breakpoints.down('sm')]: {
         left: 248,
-        bottom: 80,
+        bottom: 120,
+        width: 80,
       },
     },
   })
