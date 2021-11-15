@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import { theme } from '../style/createTheme';
@@ -36,10 +36,14 @@ const TainanToursim = () => {
     });
   }, [currentTab]);
 
+  const isMobileDevice = useMemo(() => {
+    return navigator.userAgent.search('Mobile') >= 0;
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppContext.Provider value={{ currentTab, setCurrentTab, places, setPlaces }}>
+      <AppContext.Provider value={{ currentTab, setCurrentTab, places, setPlaces, isMobileDevice }}>
         <BrowserRouter basename={'F2E_Toursim'}>
           <Header />
           <Routes>

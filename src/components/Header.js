@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) =>
       backgroundSize: 'cover',
     },
     logo: {
+      marginLeft: 32,
       '& :hover': {
         cursor: 'pointer',
       },
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) =>
 
 const Header = () => {
   const classes = useStyles();
-  const { currentTab, setCurrentTab } = useContext(AppContext);
+  const { currentTab, setCurrentTab, isMobileDevice } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleTabChange = (e, value) => {
@@ -53,13 +54,15 @@ const Header = () => {
         >
           <img src={logo} alt="台南，好水" />
         </Grid>
-        <Grid item>
-          <Tabs className={classes.tabs} value={currentTab} onChange={handleTabChange} aria-label="nav tabs">
-            <Tab component="a" value={TABS.ABOUT} label="關於" />
-            <Tab component="a" value={TABS.MAP} label="水的地圖" />
-            <Tab component="a" value={TABS.PLACE} label="水的景點" />
-          </Tabs>
-        </Grid>
+        {!isMobileDevice && (
+          <Grid item>
+            <Tabs className={classes.tabs} value={currentTab} onChange={handleTabChange} aria-label="nav tabs">
+              <Tab component="a" value={TABS.ABOUT} label="關於" />
+              <Tab component="a" value={TABS.MAP} label="水的地圖" />
+              <Tab component="a" value={TABS.PLACE} label="水的景點" />
+            </Tabs>
+          </Grid>
+        )}
       </Grid>
     </AppBar>
   );
