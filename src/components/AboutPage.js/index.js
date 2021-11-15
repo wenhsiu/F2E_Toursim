@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import Beach from '../../assets/beach.png';
@@ -6,47 +6,78 @@ import Beach2 from '../../assets/beach_2.png';
 import Ocean from '../../assets/ocean.png';
 import AboutBackground from '../../assets/about_background.png';
 import { TABS } from '../../constants/general';
+import { AppContext } from '../../context/AppContext';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
+      overflow: 'hidden',
       backgroundImage: `url(${AboutBackground})`,
       backgroundSize: 'cover',
       height: 667,
       maxHeight: 667,
+      [theme.breakpoints.down('sm')]: {
+        height: 700,
+        maxHeight: 700,
+      },
     },
     textCard: {
       margin: 'auto',
       paddingLeft: 100,
+      [theme.breakpoints.down('sm')]: {
+        paddingLeft: 0,
+        margin: '0 36px',
+      },
     },
     tabTitle: {
       fontSize: 24,
       fontWeight: theme.typography.fontWeightMedium,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 16,
+      },
     },
     title: {
       fontSize: 32,
       fontWeight: 'bold',
-    },
-    subTitle: {
-      fontSize: 18,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 22,
+      },
     },
     imageContainer: {
       paddingLeft: 50,
+      [theme.breakpoints.down('sm')]: {
+        padding: 0,
+      },
     },
     card: {
       borderRadius: 31,
       maxWidth: 321,
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: 252,
+      },
     },
     imageCard: {
       height: 214,
       width: 321,
+      [theme.breakpoints.down('sm')]: {
+        height: 168,
+        width: 252,
+      },
     },
     imageLeft: {
       marginTop: 79,
+      [theme.breakpoints.down('sm')]: {
+        marginTop: 36,
+        left: -36,
+        position: 'absolute',
+      },
     },
     imageRight: {
       marginTop: 157,
       marginLeft: 40,
+      [theme.breakpoints.down('sm')]: {
+        marginLeft: 178,
+      },
     },
     imageDown: {
       marginTop: 36,
@@ -57,12 +88,14 @@ const useStyles = makeStyles((theme) =>
 
 const AboutPage = () => {
   const classes = useStyles();
+  const { isMobileDevice } = useContext(AppContext);
+
   return (
     <div className={classes.container} id={TABS.ABOUT}>
       <Container fixed disableGutters>
-        <Grid container>
-          <Grid item xs={5} className={classes.textCard}>
-            <Grid item container direction="column" spacing={4}>
+        <Grid container direction={isMobileDevice ? 'column-reverse' : 'row'}>
+          <Grid item xs={12} sm={5} className={classes.textCard}>
+            <Grid item container direction="column" spacing={isMobileDevice ? 2 : 4}>
               <Grid item>
                 <Typography color="textPrimary" className={classes.tabTitle}>
                   關於
@@ -80,7 +113,7 @@ const AboutPage = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item container xs={7} className={classes.imageContainer}>
+          <Grid item container xs={12} sm={7} className={classes.imageContainer}>
             <Grid item container>
               <Grid item xs className={classes.imageLeft}>
                 <Card className={classes.card}>
@@ -93,11 +126,13 @@ const AboutPage = () => {
                 </Card>
               </Grid>
             </Grid>
-            <Grid item className={classes.imageDown}>
-              <Card className={classes.card}>
-                <CardMedia className={classes.imageCard} image={Ocean} title="北門鹽場" />
-              </Card>
-            </Grid>
+            {!isMobileDevice && (
+              <Grid item className={classes.imageDown}>
+                <Card className={classes.card}>
+                  <CardMedia className={classes.imageCard} image={Ocean} title="北門鹽場" />
+                </Card>
+              </Grid>
+            )}
           </Grid>
         </Grid>
       </Container>
