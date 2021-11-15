@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/F2E_Toursim/static/js/main.9f6c4486.chunk.js",
-    "main.js.map": "/F2E_Toursim/static/js/main.9f6c4486.chunk.js.map",
+    "main.js": "/F2E_Toursim/static/js/main.a6ca191f.chunk.js",
+    "main.js.map": "/F2E_Toursim/static/js/main.a6ca191f.chunk.js.map",
     "runtime-main.js": "/F2E_Toursim/static/js/runtime-main.36ff5dbd.js",
     "runtime-main.js.map": "/F2E_Toursim/static/js/runtime-main.36ff5dbd.js.map",
-    "static/js/2.32b84ec4.chunk.js": "/F2E_Toursim/static/js/2.32b84ec4.chunk.js",
-    "static/js/2.32b84ec4.chunk.js.map": "/F2E_Toursim/static/js/2.32b84ec4.chunk.js.map",
+    "static/js/2.823d2f8e.chunk.js": "/F2E_Toursim/static/js/2.823d2f8e.chunk.js",
+    "static/js/2.823d2f8e.chunk.js.map": "/F2E_Toursim/static/js/2.823d2f8e.chunk.js.map",
     "static/js/3.cce09be1.chunk.js": "/F2E_Toursim/static/js/3.cce09be1.chunk.js",
     "static/js/3.cce09be1.chunk.js.map": "/F2E_Toursim/static/js/3.cce09be1.chunk.js.map",
     "index.html": "/F2E_Toursim/index.html",
-    "static/js/2.32b84ec4.chunk.js.LICENSE.txt": "/F2E_Toursim/static/js/2.32b84ec4.chunk.js.LICENSE.txt",
+    "static/js/2.823d2f8e.chunk.js.LICENSE.txt": "/F2E_Toursim/static/js/2.823d2f8e.chunk.js.LICENSE.txt",
     "static/media/1440_background.377c42dd.png": "/F2E_Toursim/static/media/1440_background.377c42dd.png",
     "static/media/GenJyuuGothic-Normal.f9efdb14.ttf": "/F2E_Toursim/static/media/GenJyuuGothic-Normal.f9efdb14.ttf",
-    "static/media/about_background.c0797d93.png": "/F2E_Toursim/static/media/about_background.c0797d93.png",
+    "static/media/about_background.600b070d.png": "/F2E_Toursim/static/media/about_background.600b070d.png",
     "static/media/beach.26af67e5.png": "/F2E_Toursim/static/media/beach.26af67e5.png",
     "static/media/beach_2.5f9a2c40.png": "/F2E_Toursim/static/media/beach_2.5f9a2c40.png",
     "static/media/clock_icon.3a5fefbf.svg": "/F2E_Toursim/static/media/clock_icon.3a5fefbf.svg",
@@ -25,16 +25,18 @@
     "static/media/phone_icon.d34e7267.svg": "/F2E_Toursim/static/media/phone_icon.d34e7267.svg",
     "static/media/refuge.0f8dee83.png": "/F2E_Toursim/static/media/refuge.0f8dee83.png",
     "static/media/salt_fields.d7c7fd22.png": "/F2E_Toursim/static/media/salt_fields.d7c7fd22.png",
+    "static/media/scroll_arrow.9c96ce6c.svg": "/F2E_Toursim/static/media/scroll_arrow.9c96ce6c.svg",
     "static/media/sight_background.f83a1cea.png": "/F2E_Toursim/static/media/sight_background.f83a1cea.png",
     "static/media/spot_icon.7c523900.svg": "/F2E_Toursim/static/media/spot_icon.7c523900.svg",
     "static/media/sunset_background.bb47f930.png": "/F2E_Toursim/static/media/sunset_background.bb47f930.png",
     "static/media/temple.9a209278.png": "/F2E_Toursim/static/media/temple.9a209278.png",
     "static/media/ticket_icon.46fde4cd.svg": "/F2E_Toursim/static/media/ticket_icon.46fde4cd.svg",
-    "static/media/wave.30340a92.png": "/F2E_Toursim/static/media/wave.30340a92.png"
+    "static/media/wave.30340a92.png": "/F2E_Toursim/static/media/wave.30340a92.png",
+    "static/media/wave_m.70443e8a.png": "/F2E_Toursim/static/media/wave_m.70443e8a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.36ff5dbd.js",
-    "static/js/2.32b84ec4.chunk.js",
-    "static/js/main.9f6c4486.chunk.js"
+    "static/js/2.823d2f8e.chunk.js",
+    "static/js/main.a6ca191f.chunk.js"
   ]
 }
