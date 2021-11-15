@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import MapBackground from '../../assets/map_background.png';
@@ -12,6 +12,8 @@ import SightInfoCard from './SightInfoCard';
 import clsx from 'clsx';
 import { getSightInfo } from '../../service/toursium';
 import { TABS } from '../../constants/general';
+import { AppContext } from '../../context/AppContext';
+import SightInfoDialog from './SightInfoDialog';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -23,8 +25,12 @@ const useStyles = makeStyles((theme) =>
       overflow: 'hidden',
       backgroundImage: `url(${MapBackground})`,
       backgroundSize: '100% 100%',
-      height: 667,
-      maxHeight: 667,
+      height: 668,
+      maxHeight: 668,
+      [theme.breakpoints.down('sm')]: {
+        backgroundPosition: -136,
+        backgroundSize: 'cover',
+      },
     },
     sightInfoCard: {
       margin: '16px 0',
@@ -36,6 +42,10 @@ const useStyles = makeStyles((theme) =>
       fontWeight: theme.typography.fontWeightMedium,
       margin: 72,
       position: 'absolute',
+      [theme.breakpoints.down('sm')]: {
+        margin: 32,
+        fontSize: 18,
+      },
     },
     title: {
       fontSize: 32,
@@ -59,47 +69,114 @@ const useStyles = makeStyles((theme) =>
       fontSize: 20,
       position: 'relative',
       fontWeight: theme.typography.fontWeightBold,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 16,
+      },
     },
     beimenLagoon: {
       left: 320,
       top: 12,
+      [theme.breakpoints.down('sm')]: {
+        left: 130,
+        height: 124,
+        width: 223,
+      },
     },
     beimenLagoonIcon: {
       bottom: 70,
       left: 236,
+      [theme.breakpoints.down('sm')]: {
+        left: 134,
+        width: 35,
+        height: 45,
+        bottom: 46,
+      },
     },
     beimenLagoonText: {
       bottom: 146,
       left: 310,
+      [theme.breakpoints.down('sm')]: {
+        left: 120,
+        bottom: 48,
+      },
     },
     saltFields: {
       right: 72,
       top: 56,
+      [theme.breakpoints.down('sm')]: {
+        left: 100,
+        top: 10,
+        height: 123,
+        width: 244,
+      },
     },
     saltFieldsIcon: {
       bottom: 80,
       left: 240,
+      [theme.breakpoints.down('sm')]: {
+        left: 110,
+        width: 35,
+        height: 45,
+        top: 45,
+      },
     },
     saltFieldsText: {
       bottom: 120,
       left: 300,
+      [theme.breakpoints.down('sm')]: {
+        left: 150,
+        top: 10,
+      },
     },
-    luermenTempleIcon: {},
-    luermenTemple: {},
+    luermenTempleIcon: {
+      [theme.breakpoints.down('sm')]: {
+        width: 35,
+        height: 45,
+        left: 316,
+        bottom: 30,
+      },
+    },
+    luermenTemple: {
+      [theme.breakpoints.down('sm')]: {
+        width: 205,
+        height: 150,
+        top: 45,
+      },
+    },
     luermenTempleText: {
       left: 50,
+      [theme.breakpoints.down('sm')]: {
+        left: 230,
+        bottom: 30,
+      },
     },
     sicaoRefuge: {
       left: 100,
       bottom: 40,
+      [theme.breakpoints.down('sm')]: {
+        width: 266,
+        height: 155,
+        left: -56,
+        top: 20,
+      },
     },
     sicaoRefugeIcon: {
       left: 484,
       bottom: 60,
+      [theme.breakpoints.down('sm')]: {
+        width: 35,
+        height: 45,
+        left: 265,
+        bottom: 0,
+      },
     },
     sicaoRefugeText: {
       bottom: 100,
       left: 556,
+      [theme.breakpoints.down('sm')]: {
+        left: 248,
+        bottom: 80,
+      },
     },
   })
 );
@@ -120,8 +197,10 @@ const location = {
 
 const MapPage = () => {
   const classes = useStyles();
-  const [selected, setSelected] = useState(SPOT.LAGOON);
+  const { isMobileDevice } = useContext(AppContext);
+  const [selected, setSelected] = useState(isMobileDevice ? null : SPOT.LAGOON);
   const [sightsData, setSightsData] = useState();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -144,6 +223,11 @@ const MapPage = () => {
     fetchData();
   }, []);
 
+  const handleSelect = (id) => {
+    setSelected(id);
+    if (isMobileDevice) setOpen(true);
+  };
+
   return (
     <div className={classes.outside} id={TABS.MAP}>
       <Container fixed disableGutters>
@@ -155,7 +239,7 @@ const MapPage = () => {
             <Grid
               item
               className={clsx(classes.sight, selected === SPOT.LAGOON ? classes.selected : classes.unselected)}
-              onClick={() => setSelected(SPOT.LAGOON)}
+              onClick={() => handleSelect(SPOT.LAGOON)}
             >
               <SpotIcon className={clsx(classes.icon, classes.beimenLagoonIcon)} />
               <img src={LagoonPic} className={clsx(classes.icon, classes.beimenLagoon)} />
@@ -170,7 +254,7 @@ const MapPage = () => {
                 selected,
                 selected === SPOT.SALT_FIELDS ? classes.selected : classes.unselected
               )}
-              onClick={() => setSelected(SPOT.SALT_FIELDS)}
+              onClick={() => handleSelect(SPOT.SALT_FIELDS)}
             >
               <SpotIcon className={clsx(classes.icon, classes.saltFieldsIcon)} />
               <img src={SaltFieldsPic} className={clsx(classes.icon, classes.saltFields)} />
@@ -181,7 +265,7 @@ const MapPage = () => {
             <Grid
               item
               className={clsx(classes.sight, selected === SPOT.TEMPLE ? classes.selected : classes.unselected)}
-              onClick={() => setSelected(SPOT.TEMPLE)}
+              onClick={() => handleSelect(SPOT.TEMPLE)}
             >
               <SpotIcon className={clsx(classes.icon, classes.luermenTempleIcon)} />
               <img src={LuermenTemplePic} className={clsx(classes.icon, classes.luermenTemple)} />
@@ -192,7 +276,7 @@ const MapPage = () => {
             <Grid
               item
               className={clsx(classes.sight, selected === SPOT.REFUGE ? classes.selected : classes.unselected)}
-              onClick={() => setSelected(SPOT.REFUGE)}
+              onClick={() => handleSelect(SPOT.REFUGE)}
             >
               <SpotIcon className={clsx(classes.icon, classes.sicaoRefugeIcon)} />
               <img src={SicaoRefugePic} className={clsx(classes.icon, classes.sicaoRefuge)} />
@@ -201,9 +285,13 @@ const MapPage = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item className={classes.sightInfoCard}>
-            {sightsData && <SightInfoCard {...sightsData[selected]} />}
-          </Grid>
+          {isMobileDevice ? (
+            selected && <SightInfoDialog open={open} onClose={() => setOpen(false)} {...sightsData[selected]} />
+          ) : (
+            <Grid item className={classes.sightInfoCard}>
+              {sightsData && <SightInfoCard {...sightsData[selected]} />}
+            </Grid>
+          )}
         </Grid>
       </Container>
     </div>
