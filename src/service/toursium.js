@@ -3,7 +3,7 @@ import jsSHA from 'jssha';
 
 const GetAuthorizationHeader = () => {
   const GMTString = new Date().toGMTString();
-  const ShaObj = new jsSHA('SHA-224', 'TEXT');
+  const ShaObj = new jsSHA('SHA-1', 'TEXT');
   // eslint-disable-next-line no-undef
   ShaObj.setHMACKey(process.env.REACT_APP_API_KEY, 'TEXT');
   ShaObj.update('x-date: ' + GMTString);
