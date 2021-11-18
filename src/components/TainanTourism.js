@@ -8,7 +8,7 @@ import Header from './Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetailPage from './DetailPage';
 import { placeListLocation } from '../data/sightsLocation';
-import { getSightInfo } from '../service/toursium';
+import { getSightInfo } from '../services/toursium';
 import MainPage from './MainPage';
 
 const TainanToursim = () => {
