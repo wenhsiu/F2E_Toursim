@@ -13,7 +13,7 @@ jobs:
       - name: Install and Build
         run: |
           yarn install
-          yran build
+          yarn build
         env:
           REACT_APP_APP_ID: ${{secrets.REACT_APP_API_ID}}
           REACT_APP_APP_KEY: ${{secrets.REACT_APP_API_KEY}}
