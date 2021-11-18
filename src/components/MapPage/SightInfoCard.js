@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
       width: 470,
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         width: 'inherit',
       },
     },
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
       margin: 12,
       marginBottom: 0,
       borderRadius: '40px 40px 31px 31px',
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         width: 305,
         height: 197,
         margin: '24px auto 0 auto',
@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme) =>
     },
     title: {
       fontWeight: theme.typography.fontWeightMedium,
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         fontSize: 20,
       },
     },
     text: {
       fontWeight: theme.typography.fontWeightMedium,
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         fontSize: 16,
       },
     },
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) =>
       padding: '0 40px',
       height: 200,
       overflowY: 'scroll',
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         padding: '0 16px',
       },
     },
@@ -55,21 +55,21 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: theme.colors.softBlue,
       height: 94,
       padding: '8px 32px',
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         padding: '8px 16px',
       },
     },
     avatar: {
       width: 30,
       height: 30,
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         width: 22,
         height: 22,
       },
     },
     infoText: {
       fontSize: 14,
-      [theme.breakpoints.down('lg')]: {
+      [theme.breakpoints.down('sm')]: {
         fontSize: 12,
       },
     },

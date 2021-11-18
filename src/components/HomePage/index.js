@@ -99,7 +99,7 @@ const HomePage = () => {
             <Grid item container direction="column" spacing={2}>
               <Grid item>
                 <Typography color="textPrimary" className={classes.title}>
-                  台 南 好 水 （測試版）
+                  台 南 好 水
                 </Typography>
               </Grid>
               <Grid item>
