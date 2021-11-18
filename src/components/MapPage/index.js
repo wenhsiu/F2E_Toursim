@@ -10,7 +10,7 @@ import LuermenTemplePic from '../../assets/temple.png';
 import SicaoRefugePic from '../../assets/refuge.png';
 import SightInfoCard from './SightInfoCard';
 import clsx from 'clsx';
-import { getSightInfo } from '../../service/toursium';
+import { getSightInfo } from '../../services/toursium';
 import { TABS } from '../../constants/general';
 import { AppContext } from '../../context/AppContext';
 import SightInfoDialog from './SightInfoDialog';
