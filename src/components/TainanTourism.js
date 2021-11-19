@@ -5,7 +5,7 @@ import { theme } from '../style/createTheme';
 import { AppContext } from '../context/AppContext';
 import { TABS } from '../constants/general';
 import Header from './Header';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import DetailPage from './DetailPage';
 import { placeListLocation } from '../data/sightsLocation';
 import { getSightInfo } from '../services/toursium';
@@ -44,13 +44,13 @@ const TainanToursim = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContext.Provider value={{ currentTab, setCurrentTab, places, setPlaces, isMobileDevice }}>
-        <BrowserRouter basename={'F2E_Toursim'}>
+        <HashRouter>
           <Header />
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path={`${TABS.PLACE}/:id`} element={<DetailPage />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AppContext.Provider>
     </ThemeProvider>
   );
