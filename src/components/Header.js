@@ -37,7 +37,9 @@ const Header = () => {
   const { currentTab, setCurrentTab, isMobileDevice } = useContext(AppContext);
   const navigate = useNavigate();
 
-  const handleTabChange = (e, value) => {
+  const handleTabChange = async (e, value) => {
+    await navigate(`/`);
+    console.log(value);
     setCurrentTab(value);
   };
 
@@ -57,9 +59,9 @@ const Header = () => {
         {!isMobileDevice && (
           <Grid item>
             <Tabs className={classes.tabs} value={currentTab} onChange={handleTabChange} aria-label="nav tabs">
-              <Tab component="a" value={TABS.ABOUT} label="關於" />
-              <Tab component="a" value={TABS.MAP} label="水的地圖" />
-              <Tab component="a" value={TABS.PLACE} label="水的景點" />
+              <Tab component="a" to={`/${TABS.ABOUT}`} value={TABS.ABOUT} label="關於" />
+              <Tab component="a" to={`/${TABS.MAP}`} value={TABS.MAP} label="水的地圖" />
+              <Tab component="a" to={`/${TABS.PLACE}`} value={TABS.PLACE} label="水的景點" />
             </Tabs>
           </Grid>
         )}
